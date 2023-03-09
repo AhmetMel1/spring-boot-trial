@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import springboot.rentACar.Business.Abstracts.BrandService;
 import springboot.rentACar.Business.Requests.CreateBrandRequest;
+import springboot.rentACar.Business.Requests.UpdateBrandRequest;
 import springboot.rentACar.Business.Responses.GetAllBrandsResponse;
+import springboot.rentACar.Business.Responses.GetByIdBrandResponse;
 import springboot.rentACar.DataAccess.Abstracts.BrandDao;
 import springboot.rentACar.Entities.Concretes.Brand;
 import springboot.rentACar.core.utilities.mappers.ModelMapperService;
@@ -37,10 +39,30 @@ public class BrandManager implements BrandService {
     }
 
     @Override
+    public GetByIdBrandResponse getById(int id) {
+        Brand brand=this.brandDao.findById(id).orElseThrow();
+
+        GetByIdBrandResponse response=this.modelMapperService.forResponse().map(brand,GetByIdBrandResponse.class);
+
+        return response;
+    }
+
+    @Override
     public void add(CreateBrandRequest createBrandRequest) {
         Brand brand=this.modelMapperService.forRequest()
                 .map(createBrandRequest,Brand.class);
 
         this.brandDao.save(brand);
+    }
+    @Override
+    public void update(UpdateBrandRequest updateBrandRequest) {
+        Brand brand=this.modelMapperService.forRequest().map(updateBrandRequest,Brand.class);
+
+        this.brandDao.save(brand);
+
+    }
+    @Override
+    public void delete(int id) {
+        this.brandDao.deleteById(id);
     }
 }
