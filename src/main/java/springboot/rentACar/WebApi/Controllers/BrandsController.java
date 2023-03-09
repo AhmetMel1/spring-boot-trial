@@ -1,7 +1,6 @@
 package springboot.rentACar.WebApi.Controllers;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import springboot.rentACar.Business.Abstracts.BrandService;
@@ -18,10 +17,6 @@ import java.util.List;
 @AllArgsConstructor
 public class BrandsController {
     private BrandService brandService;
-    /*@Autowired
-    public BrandsController(BrandService brandService) {
-        this.brandService=brandService;
-    }*/
     @GetMapping()
     public List<GetAllBrandsResponse> getAll(){
         return brandService.getAll();
