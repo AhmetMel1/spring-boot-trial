@@ -2,9 +2,12 @@ package springboot.rentACar.WebApi.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import springboot.rentACar.Business.Abstracts.BrandService;
+import springboot.rentACar.Business.Requests.CreateBrandRequest;
+import springboot.rentACar.Business.Responses.GetAllBrandsResponse;
 import springboot.rentACar.Entities.Concretes.Brand;
 
 import java.util.List;
@@ -18,7 +21,12 @@ public class BrandsController {
         this.brandService=brandService;
     }
     @GetMapping("/getall")
-    public List<Brand> getAll(){
+    public List<GetAllBrandsResponse> getAll(){
         return brandService.getAll();
+    }
+
+    @PostMapping("add")
+    public void add(CreateBrandRequest createBrandRequest){
+        this.brandService.add(createBrandRequest);
     }
 }
