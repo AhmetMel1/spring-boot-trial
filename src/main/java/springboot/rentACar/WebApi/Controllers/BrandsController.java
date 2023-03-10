@@ -9,7 +9,7 @@ import springboot.rentACar.Business.Requests.UpdateBrandRequest;
 import springboot.rentACar.Business.Responses.GetAllBrandsResponse;
 import springboot.rentACar.Business.Responses.GetByIdBrandResponse;
 
-
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -29,12 +29,12 @@ public class BrandsController {
 
     @PostMapping()
     @ResponseStatus(code= HttpStatus.CREATED)
-    public void add(CreateBrandRequest createBrandRequest){
+    public void add(@Valid() CreateBrandRequest createBrandRequest){
         this.brandService.add(createBrandRequest);
     }
 
     @PutMapping()
-    public void update(@RequestBody UpdateBrandRequest updateBrandRequest){
+    public void update(@RequestBody() UpdateBrandRequest updateBrandRequest){
     this.brandService.update(updateBrandRequest);
     }
     @DeleteMapping("/{id}")
