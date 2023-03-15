@@ -13,10 +13,7 @@ import java.util.Scanner;
 
 @Component
 public class ApiTest {
-    Gson gson=new Gson();
     HttpClient httpClient=HttpClient.newHttpClient();
-
-    Showroom showroom=new Showroom();
     public void list() throws Exception{
         HttpRequest listRequest= HttpRequest.newBuilder().uri(new URI("https://6410863a7b24bb91f2200eed.mockapi.io/api/v7/showrooms")).build();
         HttpResponse listResponse=httpClient.send(listRequest, HttpResponse.BodyHandlers.ofString());
