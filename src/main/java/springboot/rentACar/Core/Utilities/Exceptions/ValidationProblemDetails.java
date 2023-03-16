@@ -1,4 +1,4 @@
-package springboot.rentACar.core.utilities.exceptions;
+package springboot.rentACar.Core.Utilities.Exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

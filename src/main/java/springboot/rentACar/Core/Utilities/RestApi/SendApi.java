@@ -1,7 +1,6 @@
-package springboot.rentACar.core.utilities.RestApi;
+package springboot.rentACar.Core.Utilities.RestApi;
 
 import com.google.gson.Gson;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.net.URI;

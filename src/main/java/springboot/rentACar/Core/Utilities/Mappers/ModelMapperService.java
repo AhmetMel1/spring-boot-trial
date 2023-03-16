@@ -1,4 +1,4 @@
-package springboot.rentACar.core.utilities.mappers;
+package springboot.rentACar.Core.Utilities.Mappers;
 
 import org.modelmapper.ModelMapper;
 

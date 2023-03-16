@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Table(name = "Models")
+@Table(name = "models")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

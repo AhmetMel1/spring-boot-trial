@@ -7,7 +7,7 @@ import springboot.rentACar.Business.Requests.CreateModelRequest;
 import springboot.rentACar.Business.Responses.GetAllModelsResponse;
 import springboot.rentACar.DataAccess.Abstracts.ModelDao;
 import springboot.rentACar.Entities.Concretes.Model;
-import springboot.rentACar.core.utilities.mappers.ModelMapperService;
+import springboot.rentACar.Core.Utilities.Mappers.ModelMapperService;
 import java.util.List;
 import java.util.stream.Collectors;
 

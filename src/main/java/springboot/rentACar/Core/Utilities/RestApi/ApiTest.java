@@ -1,15 +1,11 @@
-package springboot.rentACar.core.utilities.RestApi;
+package springboot.rentACar.Core.Utilities.RestApi;
 
-import com.google.gson.Gson;
 import org.springframework.stereotype.Component;
 
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Scanner;
 
 @Component
 public class ApiTest {

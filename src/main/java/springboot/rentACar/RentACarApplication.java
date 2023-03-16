@@ -1,20 +1,19 @@
 package springboot.rentACar;
 
-import jakarta.validation.UnexpectedTypeException;
-import jakarta.validation.Validation;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import springboot.rentACar.core.utilities.exceptions.BusinessException;
-import springboot.rentACar.core.utilities.exceptions.ProblemDetails;
-import springboot.rentACar.core.utilities.exceptions.ValidationProblemDetails;
+import springboot.rentACar.Core.Utilities.Exceptions.BusinessException;
+import springboot.rentACar.Core.Utilities.Exceptions.ProblemDetails;
+import springboot.rentACar.Core.Utilities.Exceptions.ValidationProblemDetails;
 
 import java.util.HashMap;
 
@@ -50,4 +49,9 @@ public class RentACarApplication {
 	public ModelMapper getModelMapper(){
 		return  new ModelMapper();
 	}
+	@Bean
+	public BCryptPasswordEncoder bCryptPasswordEncoder(){
+		return new BCryptPasswordEncoder();
+	}
+
 }

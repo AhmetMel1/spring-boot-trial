@@ -10,7 +10,7 @@ import springboot.rentACar.Business.Responses.GetByIdBrandResponse;
 import springboot.rentACar.Business.Rules.BrandBusinessRules;
 import springboot.rentACar.DataAccess.Abstracts.BrandDao;
 import springboot.rentACar.Entities.Concretes.Brand;
-import springboot.rentACar.core.utilities.mappers.ModelMapperService;
+import springboot.rentACar.Core.Utilities.Mappers.ModelMapperService;
 import java.util.List;
 import java.util.stream.Collectors;
 

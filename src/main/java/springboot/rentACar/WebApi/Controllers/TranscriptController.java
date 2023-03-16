@@ -2,7 +2,7 @@ package springboot.rentACar.WebApi.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import springboot.rentACar.core.utilities.RestApi.SendApi;
+import springboot.rentACar.Core.Utilities.RestApi.SendApi;
 
 @RestController
 @RequestMapping("/api/transcript")

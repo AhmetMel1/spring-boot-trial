@@ -5,7 +5,7 @@ import lombok.*;
 
 import java.util.List;
 
-@Table(name="Brands")
+@Table(name="brands")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

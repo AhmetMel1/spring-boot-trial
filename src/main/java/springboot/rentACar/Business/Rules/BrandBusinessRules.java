@@ -3,7 +3,7 @@ package springboot.rentACar.Business.Rules;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import springboot.rentACar.DataAccess.Abstracts.BrandDao;
-import springboot.rentACar.core.utilities.exceptions.BusinessException;
+import springboot.rentACar.Core.Utilities.Exceptions.BusinessException;
 
 @AllArgsConstructor
 @Service

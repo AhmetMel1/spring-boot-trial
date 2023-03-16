@@ -1,7 +1,6 @@
-package springboot.rentACar.core.utilities.RestApi;
+package springboot.rentACar.Core.Utilities.RestApi;
 
 import lombok.Data;
-import org.springframework.context.annotation.Bean;
 
 @Data
 public class Transcript {
