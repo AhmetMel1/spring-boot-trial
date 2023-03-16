@@ -34,7 +34,8 @@ public class AuthenticationService {
     }
     private void revokeAllUserTokens(User user){
         var validUserTokens=tokenDao.findAllValidTokenByUser(user.getId());
-        if(validUserTokens.isEmpty())return;
+        if(validUserTokens.isEmpty())
+            return;
         validUserTokens.forEach(token -> {
             token.setExpired(true);
             token.setRevoked(true);
@@ -61,7 +62,7 @@ public class AuthenticationService {
                 new UsernamePasswordAuthenticationToken(request.getEmail(),request.getPassword())
         );
         var user=userDao.findByEmail(request.getEmail()).orElseThrow();
-        var jwtToken=jwtService.generateToken(user);
+        var jwtToken=jwtService.generateToken(user);//Her girişte yeni bir token oluşturuyor.
         revokeAllUserTokens(user);
         saveUserToken(user,jwtToken);
         return AuthenticationResponse.builder()

@@ -14,5 +14,6 @@ public interface TokenDao extends JpaRepository<Token,Integer> {
       where u.id = :id and (t.expired = false or t.revoked = false)\s
       """)
     List<Token> findAllValidTokenByUser(Integer id);
+
     Optional<Token> findByToken(String token);
 }
