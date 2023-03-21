@@ -1,5 +1,6 @@
 package springboot.rentACar.Entities.Concretes.User;
 
+import com.google.gson.Gson;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,13 +22,14 @@ import java.util.List;
 @Builder
 public class User implements UserDetails {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String firstName;
+    private String firstname;
 
-    private String lastName;
+    private String lastname;
 
+    @Column(unique = true)
     private String email;
 
     private String password;

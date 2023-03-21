@@ -14,7 +14,7 @@ import springboot.rentACar.Entities.Concretes.User.User;
 @Builder
 public class Token {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(unique = true)
     public String token;
