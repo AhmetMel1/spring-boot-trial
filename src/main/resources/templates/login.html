@@ -1,50 +1,28 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="ISO-8859-1">
+
   <link rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 </head>
-<style>
-  .navbar {
-    background-color: #d9edf7;
-  }
-</style>
-
 <body>
-
-<!-- create navigation bar ( header) -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <h2>Oauth2.0</h2>
-    </div>
-  </div>
-</nav>
-
-<br><br><br><br><br><br><br>
-<!-- Create HTML registration form -->
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-
-      <!-- success message -->
-      <div th:if="${param.success}">
-        <div class="alert alert-info">You've successfully registered
-          to our awesome app!</div>
+      <div th:if="${param.error}">
+        <div class="alert alert-info">Either password or EmailId entered is incorrect!</div>
       </div>
 
-      <h1>Registration</h1>
+      <h1>Login</h1>
 
-      <form th:action="@{/register}" method="post"
+      <div>
+        <h2><a th:href="@{/oauth2/authorization/google}">Login with Google</a></h2>
+      </div>
+      <form th:action="@{/login}" method="post"
             th:object="${user}">
-        <div class="form-group">
-          <label class="control-label" for="name">Name</label>
-          <input id="name" class="form-control"
-                 th:field="*{name}" required
-                 autofocus="autofocus" />
-        </div>
+
 
 
         <div class="form-group">
@@ -66,14 +44,15 @@
 
         <div class="form-group">
           <button type="submit" class="btn btn-primary">
-            Register</button>
-          <span>Already registered? <a href="/"
-                                       th:href="@{/login}">Login
+            Log In </button>
+          <span>New User? <a href="/"
+                             th:href="@{/register}">Register
                                 here</a></span>
         </div>
       </form>
     </div>
   </div>
 </div>
+
 </body>
 </html>
