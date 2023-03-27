@@ -24,6 +24,7 @@ public class RegisterController {
     @RequestMapping(method = RequestMethod.POST,params = {"name","email","password"})
     public ResponseEntity<AuthenticationResponse> registerPage(@ModelAttribute("user")RegisterRequest request){
         System.out.println(request);
+        userService.generateOtp(request.getEmail());
         return ResponseEntity.ok(userService.saveUser(request));
     }
     @RequestMapping(method = RequestMethod.POST)
