@@ -8,5 +8,5 @@ import springboot.rentACarApp.Business.Responses.AuthenticationResponse;
 public interface UserService {
     AuthenticationResponse saveUser(RegisterRequest request);
     AuthenticationResponse loginUser(AuthenticationRequest request);
-    void generateOtp(String mail);
+    int generateOtp(String mail);
 }

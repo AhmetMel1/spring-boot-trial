@@ -27,7 +27,7 @@ public class UserManager implements UserService {
     }
 
     @Override
-    public void generateOtp(String mail) {
+    public int generateOtp(String mail) {
         int randomPIN = (int) (Math.random() * 9000) + 1000;
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setFrom("ahmet.melih5656@gmail.com");
@@ -36,6 +36,7 @@ public class UserManager implements UserService {
         msg.setSubject("Balance Network|Email Verify Code: " + randomPIN);
         msg.setText("Hello,\n You can verify your email address using the code below.\n" + randomPIN);
         mailComponent.getJavaMailSender().send(msg);
+        return randomPIN;
     }
 
 }
