@@ -30,9 +30,9 @@ public class RegisterController {
     @RequestMapping(method = RequestMethod.POST,params = {"name","email","password"})
     public ResponseEntity<AuthenticationResponse> registerPage(@ModelAttribute("user")RegisterRequest request) throws InterruptedException {
         System.out.println(request);
-        int otp=userService.generateOtp(request.getEmail());
-        service.otpExpired(otp);
-        service.ClearCache(otp);
+        //int otp=userService.generateOtp(request.getEmail());
+        //service.otpExpired(otp);
+        //service.ClearCache(otp);
         return ResponseEntity.ok(userService.saveUser(request));
     }
     @RequestMapping(method = RequestMethod.POST)

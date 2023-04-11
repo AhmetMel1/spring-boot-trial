@@ -1,0 +1,5 @@
+package springboot.rentACarApp.Core.Image.Enums;
+
+public enum KYCImage {
+    ID_CARD_FRONT,ID_CARD_BACK,DRIVER_LICENCE_FRONT,DRIVER_LICENCE_BACK,PASSPORT,SELFIE,ADDRESS
+}
