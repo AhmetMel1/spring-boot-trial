@@ -16,25 +16,25 @@ import org.springframework.security.web.authentication.logout.LogoutHandler;
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration {
     private final JwtAuthenticationFilter authenticationFilter;
     private final AuthenticationProvider authenticationProvider;
     private final LogoutHandler logoutHandler;
+    private final CustomSuccessHandler successHandler;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                //.requestMatchers("/register/**","/login/**")
-                .anyRequest()
+                .requestMatchers("/register/**","/login/**")
                 .permitAll()
-                //.anyRequest()
-                //.authenticated()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .oauth2Login()
                 .loginPage("/login")
+                .successHandler(successHandler)
                 .permitAll()
                 .and()
                 .sessionManagement()

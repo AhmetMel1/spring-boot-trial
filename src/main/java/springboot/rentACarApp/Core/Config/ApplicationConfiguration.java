@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import springboot.rentACarApp.Entities.Concretes.User.User;
 ;
 
 @Configuration
@@ -20,8 +21,13 @@ public class ApplicationConfiguration {
     private final UserDao userDao;
     @Bean
     public UserDetailsService userDetailsService(){
-        return username -> userDao.findByEmail(username)
-                .orElseThrow(()->new UsernameNotFoundException("User Not Found"));
+        return username -> {
+            User user = userDao.findByEmail(username);
+            if(user == null) {
+                throw new UsernameNotFoundException("User Not Found");
+            }
+            return user;
+        };
     }
     @Bean
     public PasswordEncoder passwordEncoder(){return new BCryptPasswordEncoder();
